@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Main Program:Live Word and Character Counter</h2>
+    <textarea id="mainText" placeholder="Start typing here..."></textarea>
+    <div class="counter">
+        Characters:<spam id="mainCharCount">0</spam><br>
+        Words:<spam id="mainWordCount">0</spam>
+    </div>
+    <script>
+        document.getElementById("mainText").addEventListener("input",
+        function(){
+            const text=this.value;
+            document.getElementById("mainCharCount").innerText=text.length;
+
+            const trimmed=text.trim();
+            const wordcount=trimmed==="" ? 0 :trimmed.split(/\s+/).length;
+            document.getElementById("mainWordCount").innertext=wordCount;
+        });
+    </script>
+    
+</body>
+
+</html>
