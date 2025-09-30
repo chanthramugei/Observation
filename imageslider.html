@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slider{
+            text-align:center;
+            position:relative;
+            width:60%;
+            margin:auto;
+        }
+        .slider img{
+            width:100%;
+            height:auto;
+        }
+        .slider button{
+            position:absolute;
+            top:50%;
+            transform:translateY(-50%);
+            padding:10px;
+            background-color:rgba(0,0,0.5);
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+        #prev{
+            left:10px;
+        }
+        #next{
+            right:10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <img src="image1.jpeg" class="slider-image" alt="Image 1" id="numberBox">
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+    </div>
+    <script>
+        let numbers=["image1.jpeg","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg"];
+        console.log(numbers.length);
+        let currentIndex=0;
+
+        let numberBox=document.getElementById("numberBox");
+        let nextBtn=document.getElementById("next");
+        let preBtn=document.getElementById("prev");
+
+        preBtn.addEventListener("click",()=>{
+        currentIndex=(currentIndex-1+numbers.length)%numbers.length;
+            //5=5-1=4+5=9%5=4
+
+        numberBox.src=numbers[currentIndex];
+        })
+
+        nextBtn.addEventListener("click",()=>{
+            cuurrentIndex=(currentIndex+1)%numbers.length;
+            //0=0+1=1%5=1
+            numberBox.src=numbers[currentIndex];
+        })
+
+        //Automatic sliding
+        setInterval(()=>{
+            currentIndex=(currentIndex+1)%numbers.length;
+            numberBox.src=numbers[currentIndex];
+        },2000);
+    </script>
+</body>
+</html>
