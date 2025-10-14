@@ -1,0 +1,106 @@
+const myData = [
+    {
+        name:"Dharaneesh",
+        image:"https://img.freepik.com/premium-photo/mechanical-engineer-digital-avatar-generative-ai_934475-9196.jpg?w=2000"
+    },
+    {
+        name:"Naveen",
+        image:"https://img.freepik.com/premium-photo/mechanical-engineer-digital-avatar-generative-ai_934475-9196.jpg?w=2000"
+    },
+    {
+        name:"Priya",
+        image:"https://img.freepik.com/premium-photo/mechanical-engineer-digital-avatar-generative-ai_934475-9196.jpg?w=2000"
+    },
+    {
+        name:"Priya",
+        image:"https://img.freepik.com/premium-photo/mechanical-engineer-digital-avatar-generative-ai_934475-9196.jpg?w=2000"
+    },
+    {
+        name:"Dharaneesh",
+        image:"https://img.freepik.com/premium-photo/mechanical-engineer-digital-avatar-generative-ai_934475-9196.jpg?w=2000"
+    },
+    {
+        name:"Naveen",
+        image:"https://img.freepik.com/premium-photo/mechanical-engineer-digital-avatar-generative-ai_934475-9196.jpg?w=2000"
+    },
+    {
+        name:"Priya",
+        image:"https://img.freepik.com/premium-photo/mechanical-engineer-digital-avatar-generative-ai_934475-9196.jpg?w=2000"
+    },
+    {
+        name:"Priya",
+        image:"https://img.freepik.com/premium-photo/mechanical-engineer-digital-avatar-generative-ai_934475-9196.jpg?w=2000"
+    },
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const con = document.getElementById('container');
+for(let i=0;i<myData.length;i++)
+{
+    con.innerHTML+=`
+    <div class='card'>
+    <h1>${myData[i].name}</h1>
+    <img src=${myData[i].image} height="100px" />
+    </div>
+    `
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fetch('https://fakestoreapi.com/products')
+.then(res=>
+   res.json()//converts json to js object
+)
+.then((data)=>{
+    for(let i=0;i<data.length;i++)
+{
+    con.innerHTML+=`
+    <div class='card'>
+    <img src=${data[i].image} height="100px" />
+    <h1>${data[i].id}</h1>
+    </div>
+    `
+}    
+})
+
+.catch((err)=>{
+    alert("error occured")
+})
+
+
+
+
+
